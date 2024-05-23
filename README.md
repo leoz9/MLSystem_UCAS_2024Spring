@@ -137,5 +137,6 @@ LogisticRegressionModel(X_train_torch.shape[1])
 # 第四章 实验结果
 
 对比模型的内存使用，运行时间，准确率，参数，cpu使用率，GPU显存。
+![image](https://github.com/leoz9/MLSystem_UCAS_2024Spring/assets/59195872/6ba7d844-c63b-4445-ac03-51dc3fcc8c27)
 
-![img](D:\笔记\clip_image002.png)
+
