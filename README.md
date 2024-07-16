@@ -1,142 +1,131 @@
-中国科学院大学南京学院
-
-**题目**多系统算法对比-财经新闻情感分类
-
-课程名称：     机器学习系统      
-
-组  员：    郭志鹏、张磊、李传坤   
-
-**指导教师**          
 
 
+# University of Chinese Academy of Sciences
 
- 
+**Title:** Multi-System Algorithm Comparison - Sentiment Classification of Financial News
 
-# 第一章 问题背景
+Course Name: Machine Learning Systems
 
-财经新闻情感分类是指使用自然语言处理技术来分析和识别财经新闻文本中的情绪倾向。这个领域的研究对金融市场的分析和预测尤为重要，因为新闻中传达的情绪可以显著影响股票市场和投资者的行为。
+Group Members: Guo Zhipeng, Zhang Lei, Li Chuankun
 
-## 1.1 背景和重要性
+**Instructor: Liu Jie**  
+[Personal Homepage](https://people.ucas.ac.cn/~liujie)
 
-在金融市场中，信息是极其重要的，而新闻报道是市场参与者获取信息的主要渠道之一。新闻中的语言表达和情绪倾向可以在很大程度上影响投资者的心理和决策，进而影响市场价格和波动。例如，一条报道银行业绩超预期的正面新闻可能会推动相关股票价格上涨，而报道金融危机的负面新闻可能会引起市场恐慌，导致股价下跌。
+# Chapter 1: Background
 
-## 1.2应用场景
+Sentiment classification of financial news involves using natural language processing technologies to analyze and identify the emotional tendencies in the text of financial news. Research in this field is particularly important for the analysis and prediction of financial markets, as the sentiments conveyed in the news can significantly affect stock market behavior and investor actions.
 
-市场预测与分析： 情绪分析可以帮助分析师和投资者理解市场趋势，预测市场动向。
+## 1.1 Background and Importance
 
-算法交易： 在高频交易和算法交易中，自动化工具可以利用情绪分析的结果快速做出交易决策。
+In financial markets, information is extremely crucial, and news reports are one of the primary sources of market information for participants. The language and emotional tendencies expressed in news can significantly influence investors' psychology and decisions, thereby affecting market prices and volatility. For example, a positive news report about a bank's performance exceeding expectations might push up the stock prices, while negative news about a financial crisis could trigger market panic and lead to a drop in stock prices.
 
-风险管理： 通过监控新闻中的负面情绪，金融机构可以提前感知潜在的风险，采取相应措施。
+## 1.2 Application Scenarios
 
-## 1.3 处理过程
+Market Prediction and Analysis: Sentiment analysis can help analysts and investors understand market trends and predict market movements.
 
-数据采集： 收集财经新闻文本，可能来源于新闻网站、社交媒体等。
+Algorithmic Trading: In high-frequency and algorithmic trading, automated tools can use the results of sentiment analysis to make quick trading decisions.
 
-文本预处理： 清洗数据，去除噪声，如HTML标签、特殊符号等。
+Risk Management: By monitoring negative sentiments in news, financial institutions can anticipate potential risks and take appropriate measures.
 
-特征提取： 从清洗后的文本中提取有用的特征，如TF-IDF权重、词频等。
+## 1.3 Process
 
-情感分类： 使用机器学习模型或深度学习模型来分类新闻的情感倾向。
+Data Collection: Collect financial news text, possibly from news websites, social media, etc.
 
-模型评估： 通过准确率，运行时间等指标评估模型的性能。
+Text Preprocessing: Clean the data by removing noise such as HTML tags and special symbols.
 
-## 1.4 挑战
+Feature Extraction: Extract useful features from the cleaned text, such as TF-IDF weights and word frequencies.
 
-情绪的主观性和复杂性： 不同的读者可能对同一篇新闻的情绪有不同的理解。
+Sentiment Classification: Use machine learning or deep learning models to classify the sentiment of the news.
 
-语境和讽刺的理解： 财经新闻中常常包含复杂的经济术语和隐喻，这对情感分析的准确性是一个挑战。
+Model Evaluation: Assess the performance of the model using metrics such as accuracy and runtime.
 
-数据不平衡： 在实际的数据集中，某些类别的新闻（如中性新闻）可能比其他类别（如正面或负面新闻）更为常见，这可能导致模型偏向于预测较多的类别。
+## 1.4 Challenges
 
-# 第二章 数据集
+Subjectivity and Complexity of Emotions: Different readers might interpret the emotions of the same news article differently.
 
-数据集主要用于训练财经新闻情感分类的模型。数据来源于雪球网上万得资讯发布的正负面新闻标题。雪球网是一个综合性的投资社交网络平台，专注于提供全面的财经信息和市场数据。用户可以在平台上获取实时的股票市场动态，包括A股、港股和美股等。帮助用户评估公司的财务状况和业绩表现。此外，投资者分享和讨论个人的投资策略和市场见解，使其成为一个投资者交流和获取投资灵感的理想场所。通过实时新闻更新和教育资源，雪球旨在提升用户的投资决策质量和市场分析能力。
+Understanding Context and Irony: Financial news often contains complex economic terms and metaphors, posing a challenge to the accuracy of sentiment analysis.
 
-通过爬虫采集到7046条新闻标题作为种子数据集，其中正面新闻5147条，负面新闻1899条。对数据进行扩充，扩充的策略是通过搜索引擎搜索和筛选，得到最终的数据集。数据集中包含17149条新闻数据，包括日期、公司、代码、正/负面、标题、正文6个字段，其中正面新闻12514条，负面新闻4635条。
+Data Imbalance: In real datasets, certain categories of news (like neutral news) may be more common than others (like positive or negative news), which could cause the model to be biased towards predicting more common categories.
 
-数据集链接https://github.com/wwwxmu/Dataset-of-financial-news-sentiment-classification数据集源[xueqiu.com](https://xueqiu.com/)
+# Chapter 2: Dataset
 
- 
+The dataset is primarily used to train models for sentiment classification of financial news. The data is sourced from positive and negative news headlines published on Xueqiu, a comprehensive investment social network platform focused on providing comprehensive financial information and market data. Users can obtain real-time updates on the stock market, including A-shares, Hong Kong stocks, and U.S. stocks, helping them assess companies' financial conditions and performance. Moreover, investors share and discuss personal investment strategies and market insights, making it an ideal place for investor interaction and investment inspiration. Through real-time news updates and educational resources, Xueqiu aims to enhance users' decision-making quality and market analysis capabilities.
 
+The seed dataset, collected through web scraping, includes 7,046 news headlines with 5,147 positive and 1,899 negative news items. The dataset was expanded through search engine searches and filtering, resulting in a final dataset containing 17,149 news items, including fields for date, company, code, sentiment (positive/negative), headline, and text, with 12,514 positive and 4,635 negative news items.
 
+Dataset link: [https://github.com/wwwxmu/Dataset-of-financial-news-sentiment-classification](https://github.com/wwwxmu/Dataset-of-financial-news-sentiment-classification) Source: [xueqiu.com](https://xueqiu.com/)
 
- 
+# Chapter 3: Experimental Methods
 
-# 第三章 实验方法
+The experiments employed three frameworks: sklearn, torch, and torch-DistributedDataParallel, each implementing a perceptron for sentiment classification of financial news. CPU and memory were monitored using psutil, training and testing times were calculated using the python package time, and GPU usage was calculated using torch.cuda.memory_allocated.
 
-​    实验使用了三种框架，分别是sklearn，torch，torch- DistributedDataParallel。分别实现了感知机对财经新闻情感分类。使用psutil对cpu，memory进行监控，使用python包time计算训练和测试时间，使用torch.cuda. memory_allocated计算gpu使用情况。
+## 1.1 Experimental Environment Setup
 
-## 1.1 实验环境配置
+Single Machine Environment:
 
-单机环境
+- 13th Gen Intel(R) Core(TM) i7-13620H
+- NVIDIA GeForce RTX 4060 Laptop GPU with 8GB VRAM
+- Memory 16GB
 
-13th Gen Intel(R) Core(TM) i7-13620H
+Multi-GPU Distributed Environment:
 
-NVIDIA GeForce RTX 4060 Laptop GPU 8显存
+- 4*A100 (40GB)
 
-Memory 16G
-
-多卡分布式环境
-
-4*A100(40G)
-
-## 1.2 实验方法
-
-​    分别实验sklearn，torch， DistributedDataParallel，实现感知机，对财经新闻情感分类。
+## 1.2 Experimental Methods
 
 ### 1.2.1 sklearn
 
-数据读取：
+Data Reading:
 
-data = pd.read_csv('情感分类.csv')：从情感分类.csv文件中读取训练数据集。
+- `data = pd.read_csv('sentiment_classification.csv')`: Reads the training dataset from the `sentiment_classification.csv` file.
 
-特征提取：
+Feature Extraction:
 
-vectorizer = TfidfVectorizer(max_features=1000)：初始化一个TfidfVectorizer对象，用于将文本数据转换为TF-IDF格式的数值特征。参数max_features=1000限制了特征的数量最多为1000，这有助于减少模型复杂性并可能提高训练速度。
+- `vectorizer = TfidfVectorizer(max_features=1000)`: Initializes a TfidfVectorizer object to convert text data into numerical features in TF-IDF format. The parameter `max_features=1000` limits the number of features to a maximum of 1000, helping to reduce model complexity and potentially increase training speed.
 
-X_train = vectorizer.fit_transform(data['正文'])：对训练数据集中的文本正文列进行拟合，并转换成TF-IDF特征矩阵。
+- `X_train = vectorizer.fit_transform(data['text'])`: Fits the vectorizer to the text column in the training dataset and converts it into a TF-IDF feature matrix.
 
-X_test = vectorizer.transform(test_data['正文'])：使用之前拟合的向量化器转换测试数据集中的文本，保证训练集和测试集的特征空间一致。
+- `X_test = vectorizer.transform(test_data['text'])`: Transforms the text in the test dataset using the previously fitted vectorizer, ensuring that the feature space is consistent between training and testing datasets.
 
-模型model = LogisticRegression()
+Model: `model = LogisticRegression()`
 
-### 1.2.2 torch_cup
+### 1.2.2 torch_cpu
 
-​    使用cup训练深度学习模型。
+Using CPU to train deep learning models.
 
-数据预处理:
+Data Preprocessing:
 
-使用 MaxAbsScaler 进行归一化处理。这种方法将每个特征缩放到 [-1, 1] 的范围内，有助于优化模型训练过程。
+- Uses `MaxAbsScaler` for normalization, scaling each feature to the range [-1, 1], which helps optimize the training process.
 
-X_train_scaled 和 X_test_scaled 是将训练和测试数据转换成归一化后的数组形式。
+- `X_train_scaled` and `X_test_scaled` are the training and testing data transformed into normalized array formats.
 
-转换为 PyTorch 张量:
+Converting to PyTorch Tensors:
 
-torch.FloatTensor 和 torch.LongTensor 用于将数据转换为 PyTorch 理解的张量格式。FloatTensor 用于特征，LongTensor 用于标签。
+- `torch.FloatTensor` and `torch.LongTensor` are used to convert data into tensor formats understood by PyTorch. `FloatTensor` is used for features, `LongTensor` for labels.
 
-定义数据加载器:
+Defining Data Loaders:
 
-TensorDataset 封装了特征和标签张量，以便与 DataLoader 配合使用。
+- `TensorDataset` encapsulates feature and label tensors for use with `DataLoader`.
 
-DataLoader 提供了批量加载数据的功能，这里批量大小设置为10，且设置 shuffle=True 以随机洗牌数据增加模型的泛化能力。
+- `DataLoader` provides functionality for batch loading data, with a batch size set to 10 and `shuffle=True` to randomize data for increased model generalization.
 
-模型定义:
+Model Definition:
 
-LogisticRegressionModel(X_train_torch.shape[1])
+- `LogisticRegressionModel(X_train_torch.shape[1])`
 
-### 1.2.2 torch_GPU
+### 1.2.3 torch_GPU
 
-​    算法同torch_cpu，需加上改行代码device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+The algorithm is the same as torch_cpu, with the addition of the line `device = torch.device("cuda" if torch.cuda.is_available() else "cpu")`.
 
 1.2.3 torch- DistributedDataParallel
 
-​    算法同torch_cpu，setup(rank, world_size)
+The algorithm is the same as torch_cpu, with `setup(rank, world_size)`
 
-  device = torch.device(f"cuda:{rank}")
+  `device = torch.device(f"cuda:{rank}")`
 
-# 第四章 实验结果
+# Chapter 4: Experimental Results
 
-对比模型的内存使用，运行时间，准确率，参数，cpu使用率，GPU显存。
+Comparing model memory usage, runtime, accuracy, parameters, CPU usage, and GPU VRAM.
 ![image](https://github.com/leoz9/MLSystem_UCAS_2024Spring/assets/59195872/6ba7d844-c63b-4445-ac03-51dc3fcc8c27)
 
-
+---
